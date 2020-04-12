@@ -1,0 +1,14 @@
+body {
+  color: #ffffff;
+  background-image: url(../images/dark_brick_wall/dark_brick_wall.png);
+  font-family: "Nanum Gothic";
+}
+
+.navbar-brand{
+  font-family: "Shadows Into Light";
+  letter-spacing: 3px;
+}
+
+tr {
+  color: #ffffff;
+}

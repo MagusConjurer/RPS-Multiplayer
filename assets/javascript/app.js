@@ -41,9 +41,10 @@ database.ref("/trains").on("child_added", function(snapshot) {
   var trainStart = snapshot.val().start;
   var trainFrequency = snapshot.val().frequency;
 
-  var startMoment = moment(trainStart,"HH:mm");
-  var minutesAway = startMoment.diff(moment(trainFrequency, "minutes"), "minutes");
-  var nextArrival = startMoment.add(minutesAway, "minutes");
+  var timeLeft = moment().diff(moment(trainStart, "HH:mm")) % trainFrequency;
+  var minutesAway = trainFrequency - timeLeft;
+
+  var nextArrival = moment().add(minutesAway, "minutes").format("HH:mm");
 
   var newTrain = $("<tr>").append(
     $("<td>").text(trainName),
